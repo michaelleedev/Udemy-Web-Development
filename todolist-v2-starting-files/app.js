@@ -1,5 +1,5 @@
 //jshint esversion:6
-
+const mongoDB = require("./config.js");
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://michael:Yuu7gL7ueol5eUNi@cluster0.2sm3ftb.mongodb.net/todolistDB");
+mongoose.connect(mongoDB);
 
 const itemsSchema = {
   name: String

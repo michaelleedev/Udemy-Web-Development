@@ -2,6 +2,8 @@ const express = require("express");
 const request = require("request");
 const bodyParser = require("body-parser");
 const https = require("https");
+const mailUrl = require("./config.js");
+const authApi = require("./config.js");
 
 const app = express();
 app.use(express.static("public"));
@@ -35,11 +37,11 @@ app.post("/", function(req, res){
 
     const jsonData = JSON.stringify(data);
 
-    const url = "https://us18.api.mailchimp.com/3.0/lists/64715a6a91";
+    const url = mailUrl;
 
     const options = {
         method: "POST", 
-        auth: "michael1:b557a6a2e37a9e5c626ff247c725db53-us18",
+        auth: authApi,
         headers:{
             'Content-Type': 'application/json',
         }

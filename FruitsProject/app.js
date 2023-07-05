@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
-
+const {mongoDB} = require('./config.js');
 main().catch(err => console.log(err));
  
 async function main() {
-  await mongoose.connect('mongodb+srv://michael:Yuu7gL7ueol5eUNi@cluster0.2sm3ftb.mongodb.net/fruitsDB');
+  await mongoose.connect(mongoDB);
 }
 
 const fruitSchema = new mongoose.Schema ({
